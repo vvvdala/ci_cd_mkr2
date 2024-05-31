@@ -2,9 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Books</title>
 </head>
 <body>
-
+    <h1>Latest Books</h1>
+    <ul>
+        {% for book in books %}
+            <li>
+                <h2>{{ book.title }}</h2>
+                <p>{{ book.description }}</p>
+                <p><strong>Authors:</strong> {{ book.authors.all|join:", " }}</p>
+                <p><strong>Publication Date:</strong> {{ book.publication_date }}</p>
+                <p><strong>Price:</strong> ${{ book.price }}</p>
+                <img src="{{ book.cover_image.url }}" alt="Cover Image" style="max-width: 200px;"/>
+            </li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
