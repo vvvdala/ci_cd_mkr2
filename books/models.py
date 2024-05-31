@@ -21,7 +21,7 @@ class Book(models.Model):
     authors = models.ManyToManyField(Author)
     description = models.TextField()
     publication_date = models.DateField()
-    cover_image = models.ImageField(upload_to='book_covers/')
+    cover_image = models.ImageField(upload_to='book_covers/', blank=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     categories = models.ManyToManyField(Category, related_name='books')
 
